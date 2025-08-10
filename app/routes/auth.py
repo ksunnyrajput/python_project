@@ -18,9 +18,10 @@ def login():
 
         if username == USER_CREDENTIALS['username'] and password == USER_CREDENTIALS['password']:
             session['user'] = username
-            flash('Login Successfull', 'success')
+            flash('Login Successful', 'success')
+            return redirect(url_for('tasks.view_tasks'))
         else:
-            flash('Invalid Username', 'danger')
+            flash('Invalid Username or Password', 'danger')
     return render_template('login.html')
 
 #Logout route 
